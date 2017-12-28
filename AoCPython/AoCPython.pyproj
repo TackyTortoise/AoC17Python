@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>61d3d718-cee3-40d9-8da3-c34d24be2de7</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Day6.py</StartupFile>
+    <StartupFile>Day7.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -28,6 +28,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Day6.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Day7.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

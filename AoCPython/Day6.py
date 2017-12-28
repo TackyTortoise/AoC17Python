@@ -19,4 +19,4 @@ def AoC6():
         print(len(seen) - firstTimeIteration)
 
 if __name__ == "__main__":
-    AoC6();
+    AoC6()
