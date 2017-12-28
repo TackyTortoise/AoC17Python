@@ -15,24 +15,25 @@ def AoC7():
             programDesc = split[0].split(" ")
             children = split[1].split(", ") if len(split) > 1 else []
             childProgList = [x for x in progs for cn in children if x.name == cn]
-            findObjList = [x for x in progs if x.name == programDesc[0]]
-            if len(findObjList) > 0:
-                findObjList[0].weight = int(programDesc[1][1:-1])
-                findObjList[0].children = childProgList
+            findObj = next((x for x in progs if x.name == programDesc[0]), None)
+            if findObj is not None:
+                findObj.weight = int(programDesc[1][1:-1])
+                findObj.children = childProgList
             else:
                 newProg = Program(programDesc[0], int(programDesc[1][1:-1]), childProgList)
                 progs.append(newProg)
 
             for c in children:
-                filtList = [x for x in progs if x.name == c]
-                if len(filtList) > 0:
-                    filtList[0].parent = newProg
+                firstChildMatch = next((x for x in progs if x.name == c), None)
+                if firstChildMatch is not None:
+                    firstChildMatch.parent = newProg
                 else:
                     childProg = Program(c, 0)
                     childProg.parent = newProg
                     progs.append(childProg)
-        parentLess = [x for x in progs if x.parent == None]
-        print(parentLess[0].name)
+
+        parentLess = next((x for x in progs if x.parent == None), None)
+        print(parentLess.name)
 
 if __name__ == "__main__":
     AoC7()
